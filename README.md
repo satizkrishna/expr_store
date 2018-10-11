@@ -31,16 +31,16 @@ Apart from these, the project includes,
 
 
 STEPS TO RUN THE PROJECT:
+
 	1. bundle install
-	2. rake db:create (make sure MySQL is running)
+	2. rake db:create #(make sure MySQL is running)
 	3. rake db:migrate
-	4. rake importer:priliminary_import (Adds basic data to make sure the application is running)
+	4. rake importer:priliminary_import #(Adds basic data to make sure the application is running)
 
 FLOWS:
 	Customer:
 		Login > Surf Category > Surf Products > Add to cart
 		Cart > Remove Items > Add Coupon > Remove Coupon > Complete Order > Get Bill
-
 	Admin:
 		All Customer Flows, and,
 		ReportDashboard > Check Today's Transaction.
