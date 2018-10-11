@@ -1,0 +1,13 @@
+<% Rails.logger.debug "INDEX HTMLHTMLHTMLHTMLHTMLHTMLHTMLHTMLHTMLHTMLHTMLHTML"
+Rails.logger.debug @store_data.inspect
+unless @store_data[:alert_no_categories] %>
+	<div class="feed-main">
+		<% @store_data[:categories].each{|cat| %>
+			<div class="feed-tile">
+				<a href="/category/<%=cat[:slug]%>">
+				<p class="feed-tile-title"> <%= cat[:name] %> </p>
+				</a>
+			</div>
+		<% } %>
+	</div>
+<% end -%>

@@ -1,0 +1,7 @@
+<%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
+<%= javascript_include_tag "application", "chartkick" %>
+<h1>LAST 24 HOURS REPORT</h1>
+<h3>TOTAL ORDER : <%= @total_order %> </h3>
+<h3>TOTAL GROSS : <%= @gross_total %> </h3>
+<h2>15 Mins Interval: </h2>
+<%= line_chart @w %>

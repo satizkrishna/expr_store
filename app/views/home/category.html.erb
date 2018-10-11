@@ -1,0 +1,48 @@
+<% Rails.logger.debug "INDEX HTMLHTMLHTMLHTMLHTMLHTMLHTMLHTMLHTMLHTMLHTMLHTML"
+Rails.logger.debug @store_data.inspect
+unless @page_info[:alert_no_items] %>
+	<div class="feed-main">
+		<% @page_info[:items].each_with_index{|item,i| %>
+			<div class="feed-tile">
+				<div id="item-feed-carousel-<%=params[:page]%>-<%=i%>" class="carousel slide" data-ride="carousel" data-interval="false" >
+  					
+  					<ul class="carousel-indicators-custom">
+	  					<% active = 0
+	  					item[:variants].each{|var| %>
+	  						<li data-target="#item-feed-carousel-<%=params[:page]%>-<%=i%>" data-slide-to="<%= active %>" class="<%= (active == 0) ? 'active' : '' %>">
+	  								<span class="variant-indc">
+	  									<%= var[:display_str] %>
+	  								</span>
+	  						</li>
+	  					<% active += 1
+	  					}%>
+  					</ul>
+  				
+  					<div class="carousel-inner">
+  						
+  						<% active = 0
+	  					item[:variants].each{|var| %>
+	  						<div class="carousel-item variant-item <%= (active == 0) ? 'active' : '' %>">
+	  							<a href="/item/<%=item[:slug]%>">
+	  								<img src="<%= var[:image_url]%>" alt="<%= var[:sku] %>">
+	  								<span class="feed-tile-title"> <%= item[:name] %> </span>
+	  							</a>
+	  							<button onclick="add_to_cart('<%=var[:sku]%>')">Add To Bag</button>
+								
+	  						</div>
+	  					<% active += 1
+	  					}%>
+
+
+					</div>
+
+  				</div>
+
+
+
+
+				
+			</div>
+		<% } %>
+	</div>
+<% end -%>

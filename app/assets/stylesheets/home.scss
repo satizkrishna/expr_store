@@ -1,0 +1,161 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-cntr{
+    margin-top: 6% !important;    
+}
+
+.expr-footer{
+	background-color: black;
+    color: white;
+    font-size: x-small;
+    font-family: monospace;
+    height: 3em;
+    bottom: 0;
+    width: 100%;
+}
+
+.feed-main {
+	// background: #aaa;
+	display: flex;
+	flex-wrap: wrap;
+}
+.feed-tile {
+	flex-grow: 1;
+	width: 33%;
+	min-height: 285px;
+    max-height: 285px;
+	text-align: center;
+}
+
+.feed-tile-title{
+	font-size: xx-large;
+    //float: right;
+    //margin-right: 32%;
+    color: black;
+
+}
+
+.carousel-inner img {
+max-width: 220px; height: auto;	
+}
+
+.carousel-indicators-custom {
+	display: flex;
+    list-style: none;
+}
+
+.carousel-indicators-custom li{
+	float:left;   
+	margin: 5px;
+    padding: 2px;
+    border: 0;
+    cursor: pointer;
+}
+
+.variant-item{
+	    max-width: 370px;
+}
+
+
+.cart-main{
+    margin-bottom: 100px;
+}
+.cart-header{
+    background-color: powderblue;
+    height: 100px;
+    padding: 10px;
+}
+.cart-title{
+    
+}
+.order-num{
+    font-size: xx-large;
+
+}
+.order-total{
+    font-size: x-large;
+}
+.cart-body{
+    background-color: aliceblue;
+    padding: 5px;
+    border: solid powderblue;
+}
+.line-item-div{
+        display: flex;
+        margin-bottom: 5px;
+}
+.li-img {
+    margin-left: 120px;
+    border: solid 1px powderblue;
+}
+.li-img img{
+    
+    max-width: 100px;
+}
+.li-data-div{
+    margin-left: 120px;
+    font-size: small;
+}
+.li-title{
+    
+}
+.li-str{
+    
+}
+.li-mrp{
+    
+}
+.li-sp{
+    
+}
+.li-remove{
+    margin-left: 120px;
+}
+.cart-footer{
+    border: solid 2px powderblue;
+}
+.coupon-div{
+    font-size: x-large;
+}
+.coupon-apply-div input{
+    
+}
+.coupon-apply-div button{
+        background: cadetblue;
+}
+.applied-coupons{
+    display: flex;
+}
+.applied-coupon-div{
+    border: solid 1px #ccc;
+    font-size: small;
+    width: auto;
+    height: 25px;
+    display: flex;
+    margin-left: 5px;
+    background-color: lightblue;
+}
+.applied-coupon-div button {
+    margin-left: 5px;
+    width: auto;
+    font-size: xx-small;
+    height: 20px;
+    background-color: black;
+    color: white;
+}
+.cart-footer-final-div{
+    
+}
+.cart-final-amt-div{
+    ont-size: xx-large;
+}
+.complete-div{
+    font-size: xx-large;
+}
+.complete-div button{
+        width: 100%;
+    background: aquamarine;
+    border: solid 2px #666;
+}

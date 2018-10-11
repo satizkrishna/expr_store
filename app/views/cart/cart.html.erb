@@ -1,0 +1,87 @@
+<%
+unless @cart_data.present?
+	@cart_data = cart_data if defined?(cart_data)
+end
+%>
+<% unless defined?(cart_data) %>
+<div class="cart-main">
+<%end%>
+<% if defined?(final_complete) %>
+<div class="cart-main">
+<%end%>
+	<div class="cart-header">
+		<div class="cart-title">
+			<p class="order-num">
+				ORDER NUMBER:<%= @cart_data.number%>
+			</p>
+			<p class="order-total pull-right">
+				TOTAL: Rs.<%= @cart_data.final_price%>
+			</p>
+		</div>
+	</div>
+	<div class="cart-body">
+		<% if @cart_data.line_items.present?
+			@cart_data.line_items.each{|li|%>
+				<div class="line-item-div">
+					<div class="li-img">
+						<img src="<%= li.image_url%>">
+					</div>
+					<div class="li-data-div">
+						<p class="li-title"> <%= Variant.find_by(:sku => li.sku).item.name %></p>
+						<p class="li-str"> <%= li.display_string %>* <%= li.quantity%></p>
+						<p class="li-mrp">MRP: Rs.<%= li.mrp %></p>
+						<p class="li-sp">SP: Rs.<%= li.sp %></p>
+					</div>
+					<% unless defined?(final_complete) %>
+					<div class="li-remove pull-right">
+						<button onclick="remove_item_from_cart('<%= li.sku%>');">x</button>
+					</div>
+					<%end%>
+				</div>
+			<%}
+		else%>
+			<p> Sorry! No Items in Cart!!!! </p>
+		<%end%>
+	</div>
+	<div class="cart-footer">
+		<div class="coupon-div">
+			<% unless defined?(final_complete) %>
+			<div class="coupon-apply-div">
+				<input type="text" id="coupon-code">
+				<button onclick="apply_coupon();">Apply</button>
+			</div>
+			<%end%>
+			<div class="applied-coupons">
+				<% if @cart_data.adjustments.present?
+					shown_coupons = []
+					@cart_data.adjustments.each{|adj|
+					code = adj.coupon_code
+						unless code.in? shown_coupons%>
+							<div class="applied-coupon-div">
+								<p id="applied-coupon-code"> <%= code %></p>
+								<% unless defined?(final_complete) %>
+								<button onclick="remove_coupon('<%= code %>');">x</button>
+								<% end %>
+							</div>
+						<% shown_coupons << code
+						end
+					}
+				end %>
+			</div>
+		</div>
+		<div class="cart-footer-final-div">
+			<div class="cart-final-amt-div">
+				<p>TOTAL: Rs.<%= @cart_data.total_price%></p>
+				<p>FINAL: Rs.<%= @cart_data.final_price%></p>
+			</div>
+			<% unless defined?(final_complete) %>
+			<div class="complete-div">
+				<button onclick="location.href='/cart/complete';">Complete Order</button>
+			</div>
+			<%end%>
+		</div>
+
+	</div>
+<% unless defined?(cart_data) %>
+</div>
+<%end %>
